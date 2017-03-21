@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="pull-left" style="margin-bottom: 10px; margin-top: 20px;">
+                    <a href="{{ path('admin_vps_list') }}" class="btn btn-primary pull-left">Return <span class="glyphicon glyphicon-chevron-right"></span></a>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <h1>Add Cpanel</h1>
+                {{ form_start(cpanelForm) }}
+                    {{ form_widget(cpanelForm) }}
+                    <button type="submit" class="btn btn-primary" formnovalidate>Save</button>
+                {{ form_end(cpanelForm) }}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{{ form_start(vpsForm) }}
+                    {{ form_row(vpsForm.name) }}
+                    {{ form_row(vpsForm.server_id,{
+                        'label':'Sever Location'
+                    }) }}
+                    {{ form_row(vpsForm.platform_id,{
+                        'label':'Platform'
+                    }) }}
+                    {{ form_row(vpsForm.sort_order) }}
+                    <button type="submit" class="btn btn-primary" formnovalidate>Save</button>
+{{ form_end(vpsForm) }}

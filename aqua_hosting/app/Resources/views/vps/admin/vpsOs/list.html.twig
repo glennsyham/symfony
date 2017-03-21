@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="pull-right" style="margin-bottom: 10px; margin-top: 20px;">
+                <a href="{{ path('admin_vps_new') }}" class="btn btn-primary pull-right">Add <span class="fa fa-plus-circle"></span></a>
+            </div>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Operating system</th>
+                    <th>Platform</th>
+                    <th>Sort Order</th>
+                    <th></th>
+                 </tr>
+                </thead>
+                <tbody>
+                {% for vpsos in vpsos_list %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('vps_single', {
+                                'id' : vpsos.id
+                            }) }}">
+                                 {{ vpsos.name }}
+                            </a>
+
+                        </td>
+                        <td>
+                            {% if vpsos.platformId == 1 %}
+                                Linux
+                            {% else %}
+                                Windows
+                            {% endif %}
+
+                        </td>
+                        <td>{{ vpsos.sortOrder }}</td>
+                        <td>
+                            <a href="{{ path('admin_vps_edit',{ 'id' : vpsos.id }) }}" class="btn btn-xs btn-success"><span class="fa fa-pencil"></span></a>
+                            &nbsp;
+                            <a href="{{ path('admin_vps_delete',{ 'id' : vpsos.id }) }}" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-trash"></span></a>
+                        </td>
+                     </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
